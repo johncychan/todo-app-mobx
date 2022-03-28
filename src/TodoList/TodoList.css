@@ -1,0 +1,83 @@
+section {
+    width: 400px;
+}
+
+input[type="text"] {
+	margin: 0;
+	font-size: 18px;
+	line-height: 18px;
+	height: 18px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	background: #fff;
+	border-radius: 6px;
+	color: #888;
+    outline: none;
+    display: flex;
+    flex: 1 1 auto;
+}
+
+button {
+	background: none;
+	border: 0px;
+	color: #888;
+	font-size: 15px;
+	width: max-content;
+	font-family: Lato, sans-serif;
+	cursor: pointer;
+}
+
+button:hover {
+	color: #333;
+}
+
+.mainHeading {
+    text-align: center;
+}
+
+.todoListHeadning {
+    display: flex;
+    align-items: center;
+}
+
+.todoListHeadning h3 {
+    margin-right: 8px;   
+}
+
+.todoListHeadning label {
+    font-size: 16px;
+    color: #888;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+li label {
+    font-size: 18px;
+    width: 240px;
+}
+
+li input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+li input[type="text"] {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+li.todoItems {
+    padding-block: 8px;
+}
+
+li .buttonGroup {
+    margin-left: auto;
+}
