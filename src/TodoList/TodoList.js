@@ -31,7 +31,7 @@ export const TodoList = observer(({listStore}) => {
                 <ul>
                     {listStore.todos.map((todo, index) => {
                         return (
-                            // <TodoListItem todo={todo} key={index} />
+                            // <TodoListItem todo={todo} onRemove={() => listStore.deleteTodo(todo.id)} key={index} />
                             <li className="todoItems" key={index}>
                                 <input type="checkbox" checked={todo.completed} onChange={() => listStore.toggleCompleteTodo(todo.id)} />
                                 <input type="text" value={todo.title} onChange={event => listStore.editTodo(todo.id, event.target.value)} />
@@ -40,7 +40,6 @@ export const TodoList = observer(({listStore}) => {
                                 </div>
                             </li>
                         )
-                        
                     })}
                 </ul>
             )}
@@ -48,7 +47,7 @@ export const TodoList = observer(({listStore}) => {
     );
 });
 
-// const TodoListItem = observer(({todo}) => {
+// const TodoListItem = observer(({todo, onRemove}) => {
 //     const onToggleCompleted = () => {
 //         todo.completed = !todo.completed;
 //     }
@@ -57,16 +56,12 @@ export const TodoList = observer(({listStore}) => {
 //         todo.title = event.target.value;
 //     }
     
-//     const onTodoRemove = () => {
-        
-//     }
-    
 //     return (
 //         <li className="todoItems">
 //             <input type="checkbox" checked={todo.completed} onChange={action(onToggleCompleted)} />
 //             <input type="text" value={todo.title} onChange={action(onTitleChange)}/>
 //             <div className="buttonGroup">
-//                 <button onClick={action(() => onTodoRemove())}>Delete</button>
+//                 <button onClick={onRemove}>Delete</button>
 //             </div>
 //         </li>
 //     );
