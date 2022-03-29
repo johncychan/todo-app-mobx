@@ -8,6 +8,8 @@ class TodoListStoreImplement {
         makeObservable(this, {
             todos: observable,
             addTodo: action,
+            editTodo: action,
+            toggleComplete: action,
             deleteTodo: action,
             status: computed,
         });
@@ -29,6 +31,16 @@ class TodoListStoreImplement {
             completed: false,
         }
         this.todos.push(item);
+    }
+    
+    editTodo(title, id) {
+        const index = this._getTodoIndex(id);
+        this.todos[index].title = title;
+    }
+
+    toggleComplete(id) {
+        const index = this._getTodoIndex(id);
+        this.todos[index].completed = !this.todos[index].completed;
     }
     
     deleteTodo(id) {
