@@ -34,17 +34,17 @@ class TodoListStoreImplement {
     }
     
     toggleCompleteTodo(id) {
-        const index = this.getTodoIndex(id);
+        const index = this._getTodoIndex(id);
         if (index > -1) this.todos[index].completed = !this.todos[index].completed;
     }
     
     editTodo(id, title) {
-        const index = this.getTodoIndex(id);
+        const index = this._getTodoIndex(id);
         if (index > -1) this.todos[index].title = title;
     }
     
     deleteTodo(id) {
-        const index = this.getTodoIndex(id);
+        const index = this._getTodoIndex(id);
         if (index > -1) this.todos.splice(index, 1);
     }
     
