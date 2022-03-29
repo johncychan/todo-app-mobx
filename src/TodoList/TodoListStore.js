@@ -14,14 +14,14 @@ class TodoListStoreImplement {
             status: computed,
         });
         
-        // autorun(() => {
-        //     return console.log(
-        //         this.todos.reduce((acc, todo) => {
-        //             const { id, ...rest } = todo;
-        //             return {...acc, [id]: rest};
-        //         }, [])
-        //     );
-        // })
+        autorun(() => {
+            return console.log(
+                this.todos.reduce((acc, todo) => {
+                    const { id, ...rest } = todo;
+                    return {...acc, [id]: rest};
+                }, [])
+            );
+        })
     }
     
     addTodo(title) {
@@ -34,17 +34,17 @@ class TodoListStoreImplement {
     }
     
     toggleCompleteTodo(id) {
-        const index = this._getTodoIndex(id);
+        const index = this.getTodoIndex(id);
         if (index > -1) this.todos[index].completed = !this.todos[index].completed;
     }
     
     editTodo(id, title) {
-        const index = this._getTodoIndex(id);
+        const index = this.getTodoIndex(id);
         if (index > -1) this.todos[index].title = title;
     }
     
     deleteTodo(id) {
-        const index = this._getTodoIndex(id);
+        const index = this.getTodoIndex(id);
         if (index > -1) this.todos.splice(index, 1);
     }
     
