@@ -3,10 +3,12 @@ import { v4 as uuidv4 } from 'uuid';
 
 class TodoListStoreImplement {
     todos = [];
+    mode = 'all'
     
     constructor()     {
         makeObservable(this, {
             todos: observable,
+            mode: observable,
             addTodo: action,
             editTodo: action,
             toggleComplete: action,
@@ -22,6 +24,17 @@ class TodoListStoreImplement {
                 }, [])
             );
         })
+    }
+    
+    todosList() {
+        switch(this.mode) {
+            case 'completed':
+                return this.todos.filter(t => t.completed);
+            case 'uncompleted':
+                return this.todos.filter(t => !t.completed);
+            default:
+                return this.todos;
+        }
     }
     
     addTodo(title) {
